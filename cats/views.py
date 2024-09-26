@@ -1,4 +1,4 @@
-from rest_framework import status
+from rest_framework import status, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.response import Response
@@ -8,16 +8,19 @@ from .models import Cat
 from .serializers import CatSerializer
 
 
-class CatList(ListCreateAPIView):
+class CatViewSet(viewsets.ModelViewSet):
     queryset = Cat.objects.all()
     serializer_class = CatSerializer
 
 
-class CatDetail(RetrieveUpdateDestroyAPIView):
-    queryset = Cat.objects.all()
-    serializer_class = CatSerializer
-
-
+# class CatList(ListCreateAPIView):
+#     queryset = Cat.objects.all()
+#     serializer_class = CatSerializer
+#
+#
+# class CatDetail(RetrieveUpdateDestroyAPIView):
+#     queryset = Cat.objects.all()
+#     serializer_class = CatSerializer
 
 
 # class APICat(APIView):
